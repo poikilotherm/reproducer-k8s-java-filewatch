@@ -1,0 +1,17 @@
+spec:
+  replicas: 1
+  template:
+    spec:
+      volumes:
+        - name: secret
+          secret:
+            secretName: test1
+      containers:
+        - volumeMounts:
+            - name: secret
+              mountPath: /test/example
+          resources:
+            requests:
+              memory: "256Mi"
+            limits:
+              memory: "512Mi"
